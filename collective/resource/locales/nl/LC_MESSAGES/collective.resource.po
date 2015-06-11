@@ -1,0 +1,721 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: collective.resource\n"
+"POT-Creation-Date: 2015-04-09 15:28+0000\n"
+"PO-Revision-Date: 2015-04-10 15:29+0000’\n"
+"Last-Translator: INTK <info@intk.com>\n"
+"Language-Team: Dutch <info@intk.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: nl\n"
+"Language-Name: Dutch\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: collective.resource\n"
+
+#: ../profiles/default/types/Object.xml:7
+msgid "Object"
+msgstr "Objecten"
+
+#: ../profiles/default/types/Object.xml:8
+msgid "Information about an object typically collected by museums"
+msgstr "Informatie over een object meestal verzameld door musea"
+
+#: ../resource.py
+msgid "Book"
+msgstr "Boeken"
+
+#: ../resource.py
+msgid "Body"
+msgstr "Tekst"
+
+#: ../resource.py
+msgid "Description"
+msgstr "Beschrijving"
+
+#: ../resource.py
+msgid "Body"
+msgstr "Tekst"
+
+#: ../resource.py
+msgid "Title, author, imprint, collation"
+msgstr "Titel, auteur, impressum, collatie"
+
+#: ../resource.py
+msgid "Title and author"
+msgstr "Titel en auteur"
+
+#: ../resource.py
+msgid "Article"
+msgstr "Lidwoord"
+
+#: ../resource.py
+msgid "Title"
+msgstr "Titel"
+
+#: ../resource.py
+msgid "Statement of respsib."
+msgstr "Auteursvermelding"
+
+#: ../resource.py
+msgid "Author"
+msgstr "Auteur"
+
+#: ../resource.py
+msgid "Role"
+msgstr "Rol"
+
+#: ../resource.py
+msgid "Illustrator"
+msgstr "Illustrator"
+
+#: ../resource.py
+msgid "Corp.author"
+msgstr "Corp.auteur"
+
+#: ../resource.py
+msgid "Edition"
+msgstr "Editie"
+
+#: ../resource.py
+msgid "Imprint"
+msgstr "Impressum"
+
+#: ../resource.py
+msgid "Imprint"
+msgstr "Impressum"
+
+#: ../resource.py
+msgid "Place"
+msgstr "Plaats"
+
+#: ../resource.py
+msgid "Publisher"
+msgstr "Uitgever"
+
+#: ../resource.py
+msgid "Year"
+msgstr "Jaar"
+
+#: ../resource.py
+msgid "Place printed"
+msgstr "Plaats van druk"
+
+#: ../resource.py
+msgid "Printer"
+msgstr "Drukker"
+
+#: ../resource.py
+msgid "Sort year"
+msgstr "Sorteerjaar"
+
+#: ../resource.py
+msgid "Collation"
+msgstr "Collatie"
+
+#: ../resource.py
+msgid "Pagination"
+msgstr "Pagina's"
+
+#: ../resource.py
+msgid "Illustrations"
+msgstr "Illustraties"
+
+#: ../resource.py
+msgid "Dimensions"
+msgstr "Formaat"
+
+#: ../resource.py
+msgid "Accompanying material"
+msgstr "Begeleidend materiaal"
+
+#: ../resource.py
+msgid "Series, notes, ISBN"
+msgstr "Reeks, annotatie, ISBN"
+
+#: ../resource.py
+msgid "Series"
+msgstr "Reeks"
+
+#: ../resource.py
+msgid "Series article"
+msgstr "Lidwoord reeks"
+
+#: ../resource.py
+msgid "Series no."
+msgstr "Reeksnummer"
+
+#: ../resource.py
+msgid "ISSN series"
+msgstr "ISSN reeks"
+
+#: ../resource.py
+msgid "Subseries"
+msgstr "Onderreeks"
+
+#: ../resource.py
+msgid "Subseries article"
+msgstr "Onderreeks lidwoord"
+
+#: ../resource.py
+msgid "Subseries number"
+msgstr "Onderreeks nummer"
+
+#: ../resource.py
+msgid "ISSN subseries"
+msgstr "ISSN onderreeks"
+
+#: ../resource.py
+msgid "Notes"
+msgstr "Annotatie"
+
+#: ../resource.py
+msgid "Bibliographical notes"
+msgstr "Annotatie"
+
+#: ../resource.py
+msgid "ISBN"
+msgstr "ISBN"
+
+#: ../resource.py
+msgid "Price"
+msgstr "Prijs"
+
+#: ../resource.py
+msgid "Binding method"
+msgstr "Bindwijze"
+
+#: ../resource.py
+msgid "ISSN"
+msgstr "ISSN"
+
+#: ../resource.py
+msgid "Conference"
+msgstr "Conferentie"
+
+#: ../resource.py
+msgid "Abstract and subject terms"
+msgstr "Samenvatting, classificatie, trefwoorden"
+
+#: ../resource.py
+msgid "Material type"
+msgstr "Materiaalsoort"
+
+#: ../resource.py
+msgid "Bibl. form"
+msgstr "Blibliogr. vorm"
+
+#: ../resource.py
+msgid "Language"
+msgstr "Taal"
+
+#: ../resource.py
+msgid "Level"
+msgstr "Niveau"
+
+#: ../resource.py
+msgid "Class number"
+msgstr "Class. code"
+
+#: ../resource.py
+msgid "Subject term type"
+msgstr "Soort trefwoord"
+
+#: ../resource.py
+msgid "Subject term"
+msgstr "Trefwoord"
+
+#: ../resource.py
+msgid "Proper name"
+msgstr "Eigennaam"
+
+#: ../resource.py
+msgid "Person keyword type"
+msgstr "Soort pers.trefwoord"
+
+#: ../resource.py
+msgid "Person keyword type"
+msgstr "Naam"
+
+#: ../resource.py
+msgid "Role"
+msgstr "Rol"
+
+#: ../resource.py
+msgid "Geographical keyword"
+msgstr "Greografish trefwoord"
+
+#: ../resource.py
+msgid "Period"
+msgstr "Periode"
+
+#: ../resource.py
+msgid "Start date"
+msgstr "Begindatum"
+
+#: ../resource.py
+msgid "End date"
+msgstr "Einddatum"
+
+#: ../resource.py
+msgid "Digital references"
+msgstr "Digitale referenties"
+
+#: ../resource.py
+msgid "Reference"
+msgstr "Referentie"
+
+#: ../resource.py
+msgid "Abstract"
+msgstr "Samenvatting"
+
+#
+# Reproductions
+#
+
+#: ../resource.py
+msgid "Reproductions"
+msgstr "Reproducties"
+
+#: ../resource.py
+msgid "Reproduction"
+msgstr "Reproductie"
+
+#: ../resource.py
+msgid "Reference"
+msgstr "Referentie"
+
+#: ../resource.py
+msgid "Format"
+msgstr "Formaat"
+
+#: ../resource.py
+msgid "Type"
+msgstr "Soort"
+
+#: ../resource.py
+msgid "Date"
+msgstr "Datum"
+
+#: ../resource.py
+msgid "Identifier (URL)"
+msgstr "Identifier (URL)"
+
+#: ../resource.py
+msgid "Notes"
+msgstr "Bijzonderheden"
+
+#
+# exhibitions_auctions_collections
+#
+
+#: ../resource.py
+msgid "Exhibitions, auctions, collections"
+msgstr "Tentoonstellingen, veilingen, collecties"
+
+#: ../resource.py
+msgid "Exhibition"
+msgstr "Tentoonstelling"
+
+#: ../resource.py
+msgid "Exhibition name"
+msgstr "Tentoonstellingsnaam"
+
+#: ../resource.py
+msgid "Date"
+msgstr "Datum"
+
+#: ../resource.py
+msgid "to"
+msgstr "t/m"
+
+#: ../resource.py
+msgid "Venue"
+msgstr "Locatie"
+
+#: ../resource.py
+msgid "Venue"
+msgstr "Locatie"
+
+#: ../resource.py
+msgid "Auction"
+msgstr "Veiling"
+
+#: ../resource.py
+msgid "Auction name"
+msgstr "Veilingnaam"
+
+#: ../resource.py
+msgid "Auctioneer"
+msgstr "Veilinghuis"
+
+#: ../resource.py
+msgid "Collector"
+msgstr "Collectioneur"
+
+#: ../resource.py
+msgid "Commissair-priseur"
+msgstr "Commissair-priseur"
+
+#: ../resource.py
+msgid "Auction number"
+msgstr "Veilingnummer"
+
+#: ../resource.py
+msgid "Collection"
+msgstr "Collectie"
+
+#: ../resource.py
+msgid "Collection name"
+msgstr "Collectienaam"
+
+#: ../resource.py
+msgid "Organisation"
+msgstr "Organisatie"
+
+#: ../resource.py
+msgid "Location"
+msgstr "Locatie"
+
+#
+# Relations
+#
+
+#: ../resource.py
+msgid "Relations"
+msgstr "Relaties"
+
+#: ../resource.py
+msgid "Volume"
+msgstr "Deel"
+
+#: ../resource.py
+msgid "Analytical cataloguing"
+msgstr "Koepelgegevens"
+
+#: ../resource.py
+msgid "record no."
+msgstr "recordnr."
+
+#: ../resource.py
+msgid "Part of"
+msgstr "Onderdeel van"
+
+#: ../resource.py
+msgid "Consists of"
+msgstr "Bestaat uit"
+
+#: ../resource.py
+msgid "Museum objects"
+msgstr "Museumobjecten"
+
+#: ../resource.py
+msgid "Object no."
+msgstr "Objectnr"
+
+#: ../resource.py
+msgid "Object name"
+msgstr "Objectnaam"
+
+#: ../resource.py
+msgid "Maker"
+msgstr "Vervaardiger"
+
+#
+# Free fields
+#
+
+
+#: ../resource.py
+msgid "Free fields and numbers"
+msgstr "Vrije velden en nummer"
+
+#: ../resource.py
+msgid "Free fields"
+msgstr "Vrije velden"
+
+#: ../resource.py
+msgid "Confidential"
+msgstr "Vertrouwelijk"
+
+#: ../resource.py
+msgid "Contents"
+msgstr "Inhoud"
+
+#: ../resource.py
+msgid "Other number"
+msgstr "Andere nummers"
+
+#: ../resource.py
+msgid "PPN"
+msgstr "PPN"
+
+#
+# Copies and shelf marks
+#
+
+#: ../resource.py
+msgid "Copies and shelf marks"
+msgstr "Exemplaren en vindplaatsen"
+
+#: ../resource.py
+msgid "Default shelf mark"
+msgstr "Standaard signatuur"
+
+#: ../resource.py
+msgid "Copy details"
+msgstr "Exemplaargegevens"
+
+#: ../resource.py
+msgid "Copy number"
+msgstr "Exemplaarnummer"
+
+#: ../resource.py
+msgid "Shelf mark"
+msgstr "Plaatscode"
+
+#: ../resource.py
+msgid "Availability"
+msgstr "Beschikbaarheid"
+
+#: ../resource.py
+msgid "Loan category"
+msgstr "Uitleencategorie"
+
+#: ../resource.py
+msgid "Site"
+msgstr "Filiaal"
+
+#: ../resource.py
+msgid "Location notes"
+msgstr "Bijzonderheden locatie"
+
+#
+# Series
+#
+
+#: ../resource.py
+msgid "Quantity"
+msgstr "Aantal"
+
+#: ../resource.py
+msgid "Lead word"
+msgstr "Lidwoord"
+
+#: ../resource.py
+msgid "Contents"
+msgstr "Omvang"
+
+#: ../resource.py
+msgid "Physical details"
+msgstr "Fysieke kenmerken"
+
+
+#: ../resource.py
+msgid "Production"
+msgstr "Productie"
+
+#: ../resource.py
+msgid "Broadcast"
+msgstr "Uitzending"
+
+#: ../resource.py
+msgid "Broadcasting company"
+msgstr "Omroep"
+
+#: ../resource.py
+msgid "Production company"
+msgstr "Productiemaatschappij"
+
+
+#: ../resource.py
+msgid "Audiovisual"
+msgstr "Audio-visuele materialen"
+
+
+#: ../resource.py
+msgid "Audio-visual materials"
+msgstr "Audio-visuele materialen"
+
+#
+# Articles
+#
+
+#: ../resource.py
+msgid "Article"
+msgstr "Artikel"
+
+#: ../resource.py
+msgid "Articles"
+msgstr "Artikelen"
+
+#
+# Sources
+#
+
+#: ../resource.py
+msgid "Source"
+msgstr "Vindplaats"
+
+
+#: ../resource.py
+msgid "Source title article"
+msgstr "Lidwoord brontitel"
+
+
+#: ../resource.py
+msgid "Material type"
+msgstr "Materiaalsoort"
+
+#: ../resource.py
+msgid "Source title"
+msgstr "Brontitel"
+
+#: ../resource.py
+msgid "Volume"
+msgstr "Jaargang"
+
+#: ../resource.py
+msgid "Issue"
+msgstr "Aflevering"
+
+#: ../resource.py
+msgid "Day"
+msgstr "Dag"
+
+#: ../resource.py
+msgid "Year"
+msgstr "Jaar"
+
+#: ../resource.py
+msgid "Pagination"
+msgstr "Pagina's"
+
+#: ../resource.py
+msgid "Notes"
+msgstr "Bijzonderheden"
+
+#: ../resource.py
+msgid "Bibliographical notes"
+msgstr "Annotatie"
+
+#: ../resource.py
+msgid "Illustrations"
+msgstr "Illustraties"
+
+#: ../resource.py
+msgid "Title, author, source"
+msgstr "Titel, auteur, vindplaats"
+
+
+#
+# Serials
+#
+
+#: ../resource.py
+msgid "Issues"
+msgstr "Nummering"
+
+#: ../resource.py
+msgid "Issues"
+msgstr "Nummering"
+
+#: ../resource.py
+msgid "Series, notes, ISSN, shelf mark"
+msgstr "Reeks, annotatie, ISSN, vindplaats"
+
+#: ../resource.py
+msgid "ISSN series"
+msgstr "ISSN van reeks"
+
+#: ../resource.py
+msgid "Holding"
+msgstr "Holding"
+
+#: ../resource.py
+msgid "Continuation"
+msgstr "Voortzetting"
+
+#: ../resource.py
+msgid "Continued from"
+msgstr "Voortzetting van"
+
+#: ../resource.py
+msgid "Continued as"
+msgstr "Voortgezet als"
+
+#: ../resource.py
+msgid "Missing"
+msgstr "Ontbreekt"
+
+#: ../resource.py
+msgid "Serials"
+msgstr "Tijdschriften"
+
+#: ../resource.py
+msgid "Serial"
+msgstr "Tijdschrift"
+
+#: ../resource.py
+msgid "Resources"
+msgstr "Digitale bronnen"
+
+#: ../resource.py
+msgid "Resource"
+msgstr "Digitale bronnen"
+
+#: ../resource.py
+msgid "Resource (Dublin Core)"
+msgstr "Resource (Dublin Core)"
+
+#: ../resource.py
+msgid "Creator"
+msgstr "Auteur"
+
+#: ../resource.py
+msgid "Subject"
+msgstr "Trefwoord"
+
+#: ../resource.py
+msgid "Description"
+msgstr "Beschrijving"
+
+#: ../resource.py
+msgid "Contributor"
+msgstr "Andere medeweker"
+
+#: ../resource.py
+msgid "Resource Type"
+msgstr "Materiaalsoort"
+
+
+#: ../resource.py
+msgid "Identifier"
+msgstr "Bestandsidentificatie"
+
+#: ../resource.py
+msgid "Source"
+msgstr "Bron"
+
+#: ../resource.py
+msgid "Relation"
+msgstr "Relatie"
+
+#: ../resource.py
+msgid "Coverage"
+msgstr "Dekking"
+
+#: ../resource.py
+msgid "Rights"
+msgstr "Copyright"
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,156 @@
+<!-- Secondary fieldsets -->
+  
+<div metal:define-macro="test">
+
+  <tal:resource_dublin_core tal:condition='python: fieldset_text == "resource_dublin_core"'
+    tal:define='widgets group/widgets'>
+
+    <div class="row no-padding">
+
+        <h2 class="page-header" i18n:translate="">Resource (Dublin Core)</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_title/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_creator/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_subject/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_description/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_publisher/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_contributor/@@ploneform-render-widget"/>
+        </div>
+
+         <div class="form-horizontal">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_date/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_resourceType/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_format/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_identifier/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_identifier/@@ploneform-render-widget"/>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Sort year</h2>
+
+        <div class="form-horizontal">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_sortYear_sortYear/@@ploneform-render-widget"/>
+        </div>
+        
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_source/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_language/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_relation/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_coverage/@@ploneform-render-widget"/>
+        </div>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/resourceDublinCore_rights/@@ploneform-render-widget"/>
+        </div>
+
+
+    </div>
+  </tal:resource_dublin_core>
+
+  <tal:reproductions tal:condition='python: fieldset_text == "reproductions"'
+    tal:define='widgets group/widgets'>
+    <!-- Reproductions -->
+    <div class="row no-padding">
+        <h2 class="page-header" i18n:translate="">Reproduction</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/reproductions_reproduction/@@ploneform-render-widget"/>
+        </div>
+        
+    </div>
+  </tal:reproductions>
+
+  <tal:exhibitions_auctions_collections tal:condition='python: fieldset_text == "exhibitions_auctions_collections"'
+    tal:define='widgets group/widgets'>
+    <!-- exhibitions_auctions_collections -->
+    <div class="row no-padding">
+        <h2 class="page-header" i18n:translate="">Exhibition</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/exhibitionsAuctionsCollections_exhibition/@@ploneform-render-widget"/>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Auction</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/exhibitionsAuctionsCollections_auction/@@ploneform-render-widget"/>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Collection</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/exhibitionsAuctionsCollections_collection/@@ploneform-render-widget"/>
+        </div>
+        
+    </div>
+  </tal:exhibitions_auctions_collections>
+
+  <tal:linked_objects tal:condition='python: fieldset_text == "linked_objects"'
+    tal:define='widgets group/widgets'>
+    <!-- Reproductions -->
+    <div class="row no-padding">
+        <h2 class="page-header" i18n:translate="">Linked Objects</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/linkedObjects_linkedObjects/@@ploneform-render-widget"/>
+        </div>
+        
+    </div>
+  </tal:linked_objects>
+
+  <tal:copies_and_shelf_marks tal:condition='python: fieldset_text == "copies_and_shelf_marks"'
+    tal:define='widgets group/widgets'>
+    <!-- copies_and_shelf_marks -->
+    <div class="row no-padding">
+        
+        <div class="form-horizontal">
+          <tal:widget tal:replace="structure widgets/copiesAndShelfMarks_defaultShelfMark/@@ploneform-render-widget"/>
+        </div>
+
+        <h2 class="page-header" i18n:translate="">Copy details</h2>
+
+        <div class="form-horizontal gridfield">
+          <tal:widget tal:replace="structure widgets/copiesAndShelfMarks_copyDetails/@@ploneform-render-widget"/>
+        </div>
+
+    </div>
+  </tal:copies_and_shelf_marks>
+
+
+</div>
