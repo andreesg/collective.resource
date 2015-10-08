@@ -686,7 +686,7 @@ msgid "Contributor"
 msgstr "Andere medeweker"
 
 #: ../resource.py
-msgid "Resource Type"
+msgid "Resource type"
 msgstr "Materiaalsoort"
 
 
@@ -710,6 +710,10 @@ msgstr "Dekking"
 msgid "Rights"
 msgstr "Copyright"
 
+
+#: ../resource.py
+msgid "Linked Objects"
+msgstr "Gekoppelde objecten"
 
 
 

@@ -3,6 +3,9 @@
 
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 from collective.resource import MessageFactory as _
+from collective.object.utils.vocabularies import ATVMVocabulary, ObjectVocabulary
+
+
 # # # # # # # # # # # # # #
 # Vocabularies            #
 # # # # # # # # # # # # # #
@@ -28,6 +31,12 @@ def _createPriorityVocabulary():
     for key, name in priorities.items():
         term = SimpleTerm(value=key, token=str(key), title=name)
         yield term
+
+SubjectVocabularyFactory = ObjectVocabulary('resourceDublinCore_subject')
+ResourceTypeVocabularyFactory = ObjectVocabulary('resourceDublinCore_resourceType')
+LanguageVocabularyFactory = ObjectVocabulary('resourceDublinCore_language')
+LoanCategoryVocabularyFactory = ObjectVocabulary('copiesAndShelfMarks_copyDetails_loanCategory')
+SiteVocabularyFactory = ObjectVocabulary('copiesAndShelfMarks_copyDetails_resourceSite')
 
 priority_vocabulary = SimpleVocabulary(list(_createPriorityVocabulary()))
 insurance_type_vocabulary = SimpleVocabulary(list(_createInsuranceTypeVocabulary()))

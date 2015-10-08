@@ -7,6 +7,12 @@ from collective.resource import MessageFactory as _
 from ..utils.vocabularies import _createPriorityVocabulary, _createInsuranceTypeVocabulary
 from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
+from z3c.relationfield.schema import RelationChoice
+from z3c.relationfield.schema import RelationList
+from collective.object.utils.widgets import SimpleRelatedItemsFieldWidget, AjaxSingleSelectFieldWidget
+from collective.object.utils.source import ObjPathSourceBinder
+from plone.directives import dexterity, form
+
 priority_vocabulary = SimpleVocabulary(list(_createPriorityVocabulary()))
 insurance_type_vocabulary = SimpleVocabulary(list(_createInsuranceTypeVocabulary()))
 
@@ -32,7 +38,17 @@ class ITitle(Interface):
     title = schema.TextLine(title=_(u'Title'), required=False)
 
 class ICreator(Interface):
-    name = schema.TextLine(title=_(u'Creator'), required=False)
+    creator = RelationList(
+        title=_(u'Creator'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('creator', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
 
 class ISubject(Interface):
     term = schema.TextLine(title=_(u'Subject'), required=False)
@@ -41,7 +57,17 @@ class IDescription(Interface):
     term = schema.TextLine(title=_(u'Description'), required=False)
 
 class IContributor(Interface):
-    term = schema.TextLine(title=_(u'Contributor'), required=False)
+    contributor = RelationList(
+        title=_(u'Contributor'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('contributor', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
     
 class IAuthor(Interface):
     author = schema.TextLine(title=_(u'Author'), required=False)
@@ -79,7 +105,17 @@ class IISSN(Interface):
     ISSN = schema.TextLine(title=_(u'ISSN'), required=False)
 
 class IPublisher(Interface):
-    name = schema.TextLine(title=_(u'Publisher'), required=False)
+    publisher = RelationList(
+        title=_(u'Publisher'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('publisher', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
 
 class IPlacePrinted(Interface):
     term = schema.TextLine(title=_(u'Place printed'), required=False)
@@ -166,42 +202,62 @@ class IReproduction(Interface):
     notes = schema.TextLine(title=_(u'Notes'), required=False)
 
 class ILinkedObjects(Interface):
-    objectNumber = schema.TextLine(title=_(u'Object number'), required=False)
-    creator = schema.TextLine(title=_(u'Creator'), required=False)
-    objectName = schema.TextLine(title=_(u'Object name'), required=False)
-    title = schema.TextLine(title=_(u'Title'), required=False)
+    objectNumber = RelationList(
+        title=_(u'Object number'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='Object')
+        ),
+        required=False
+    )
+    form.widget('objectNumber', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
+    #creator = schema.TextLine(title=_(u'Creator'), required=False)
+    #objectName = schema.TextLine(title=_(u'Object name'), required=False)
+    #title = schema.TextLine(title=_(u'Title'), required=False)
 
 
 # Exhibitions, auctions, collections
 class IExhibition(Interface):
-    exhibitionName = schema.TextLine(title=_(u'Exhibition name'), required=False)
-    date = schema.TextLine(title=_(u'Date'), required=False)
-    to = schema.TextLine(title=_(u'to'), required=False)
-    organiser = schema.TextLine(title=_(u'Organiser'), required=False)
-    venue = schema.TextLine(title=_(u'Venue'), required=False)
-    place = schema.TextLine(title=_(u'Place'), required=False)
-    notes = schema.TextLine(title=_(u'Notes'), required=False)
+    exhibitionName = RelationList(
+        title=_(u'Exhibition'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='Exhibition')
+        ),
+        required=False
+    )
+    form.widget('exhibitionName', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
+    #date = schema.TextLine(title=_(u'Date'), required=False)
+    #to = schema.TextLine(title=_(u'to'), required=False)
+    #organiser = schema.TextLine(title=_(u'Organiser'), required=False)
+    #venue = schema.TextLine(title=_(u'Venue'), required=False)
+    #place = schema.TextLine(title=_(u'Place'), required=False)
+    notes = schema.Text(title=_(u'Notes'), required=False)
 
 
 class IAuction(Interface):
     auctionName = schema.TextLine(title=_(u'Auction name'), required=False)
-    auctioneer = schema.TextLine(title=_(u'Auctioneer'), required=False)
-    date = schema.TextLine(title=_(u'Date'), required=False)
-    to = schema.TextLine(title=_(u'to'), required=False)
-    place = schema.TextLine(title=_(u'Place'), required=False)
-    location = schema.TextLine(title=_(u'Location'), required=False)
-    collector = schema.TextLine(title=_(u'Collector'), required=False)
-    commissairPriseur = schema.TextLine(title=_(u'Commissair-priseur'), required=False)
-    auctionNumber = schema.TextLine(title=_(u'Auction number'), required=False)
-    notes = schema.TextLine(title=_(u'Notes'), required=False)
+    #auctioneer = schema.TextLine(title=_(u'Auctioneer'), required=False)
+    #date = schema.TextLine(title=_(u'Date'), required=False)
+    #to = schema.TextLine(title=_(u'to'), required=False)
+    #place = schema.TextLine(title=_(u'Place'), required=False)
+    #location = schema.TextLine(title=_(u'Location'), required=False)
+    #collector = schema.TextLine(title=_(u'Collector'), required=False)
+    #commissairPriseur = schema.TextLine(title=_(u'Commissair-priseur'), required=False)
+    #auctionNumber = schema.TextLine(title=_(u'Auction number'), required=False)
+    notes = schema.Text(title=_(u'Notes'), required=False)
 
 class ICollection(Interface):
     collectionName = schema.TextLine(title=_(u'Collection name'), required=False)
-    collector = schema.TextLine(title=_(u'Collector'), required=False)
-    organisation = schema.TextLine(title=_(u'Organisation'), required=False)
-    date = schema.TextLine(title=_(u'Date'), required=False)
-    place = schema.TextLine(title=_(u'Place'), required=False)
-    notes = schema.TextLine(title=_(u'Notes'), required=False)
+    #collector = schema.TextLine(title=_(u'Collector'), required=False)
+    #organisation = schema.TextLine(title=_(u'Organisation'), required=False)
+    #date = schema.TextLine(title=_(u'Date'), required=False)
+    #place = schema.TextLine(title=_(u'Place'), required=False)
+    notes = schema.Text(title=_(u'Notes'), required=False)
 
 
 # Relations
@@ -233,10 +289,26 @@ class IOtherNumber(Interface):
 class ICopyDetails(Interface):
     copyNumber = schema.TextLine(title=_(u'Copy number'), required=False)
     shelfMark = schema.TextLine(title=_(u'Shelf mark'), required=False)
-    availability = schema.TextLine(title=_(u'Availability'), required=False)
-    loanCategory = schema.TextLine(title=_(u'Loan category'), required=False)
-    site = schema.TextLine(title=_(u'Site'), required=False)
-    locationNotes = schema.TextLine(title=_(u'Location notes'), required=False)
+    #availability = schema.TextLine(title=_(u'Availability'), required=False)
+    loanCategory = schema.List(
+        title=_(u'Loan category'),
+        required=False,
+        value_type=schema.TextLine(),
+        missing_value=[],
+        default=[]
+    )
+    form.widget('loanCategory', AjaxSingleSelectFieldWidget, vocabulary="collective.resource.loanCategory")
+
+    site = schema.List(
+        title=_(u'Site'),
+        required=False,
+        value_type=schema.TextLine(),
+        missing_value=[],
+        default=[]
+    )
+    form.widget('site', AjaxSingleSelectFieldWidget, vocabulary="collective.resource.site")
+
     holding = schema.TextLine(title=_(u'Holding'), required=False)
     missing = schema.TextLine(title=_(u'Missing'), required=False)
+    locationNotes = schema.Text(title=_(u'Location notes'), required=False)
 

@@ -34,11 +34,13 @@
       />
     
   <browser:page
-        name="view"
+        name="contents_view"
         for="collective.resource.resource.IResource"
         class="collective.resource.resource.ResourceView"
         template="resource_templates/view.pt"
         permission="zope2.View"
+        title="View Content"
+        menu="plone_displayviews"
         />
 
 
@@ -85,5 +87,34 @@
     />
 
   <!-- -*- extra stuff goes here -*- -->
+
+  <adapter name="copiesAndShelfMarks_copyDetails_loanCategory" factory=".utils.indexers.copiesAndShelfMarks_copyDetails_loanCategory" />
+  <adapter name="copiesAndShelfMarks_copyDetails_resourceSite" factory=".utils.indexers.copiesAndShelfMarks_copyDetails_resourceSite" />
+  
+
+  <utility
+    component=".utils.vocabularies.SubjectVocabularyFactory"
+    name="collective.resource.subject"
+    />
+
+  <utility
+    component=".utils.vocabularies.ResourceTypeVocabularyFactory"
+    name="collective.resource.resourceType"
+    />
+
+  <utility
+    component=".utils.vocabularies.LanguageVocabularyFactory"
+    name="collective.resource.language"
+    />
+
+  <utility
+    component=".utils.vocabularies.LoanCategoryVocabularyFactory"
+    name="collective.resource.loanCategory"
+    />
+
+  <utility
+    component=".utils.vocabularies.SiteVocabularyFactory"
+    name="collective.resource.site"
+    />
 
 </configure>

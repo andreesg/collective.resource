@@ -51,6 +51,7 @@ from collective import dexteritytextindexer
 from plone.dexterity.browser.view import DefaultView
 from plone.dexterity.content import Container
 from plone.dexterity.browser import add, edit
+from plone.app.widgets.dx import AjaxSelectFieldWidget
 
 # # # # # # # # # # # # # # # # # #
 # !Resource specific imports!     #
@@ -59,6 +60,13 @@ from collective.resource import MessageFactory as _
 from .utils.vocabularies import *
 from .utils.interfaces import *
 from .utils.views import *
+
+from z3c.relationfield.schema import RelationChoice
+from z3c.relationfield.schema import RelationList
+from collective.object.utils.widgets import SimpleRelatedItemsFieldWidget, AjaxSingleSelectFieldWidget
+from collective.object.utils.source import ObjPathSourceBinder
+from plone.directives import dexterity, form
+from collective.z3cform.datagridfield.interfaces import IDataGridField
 
 # # # # # # # # # # # # ###
 # # # # # # # # # # # # ###
@@ -105,12 +113,14 @@ class IResource(form.Schema):
     form.widget(resourceDublinCore_creator=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('resourceDublinCore_creator')
     
-
-    resourceDublinCore_subject = ListField(title=_(u'Subject'),
-        value_type=DictRow(title=_(u'Subject'), schema=ISubject),
-        required=False)
-    form.widget(resourceDublinCore_subject=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('resourceDublinCore_subject')
+    resourceDublinCore_subject = schema.List(
+        title=_(u'Subject'),
+        required=False,
+        value_type=schema.TextLine(),
+        missing_value=[],
+        default=[]
+    )
+    form.widget('resourceDublinCore_subject', AjaxSelectFieldWidget, vocabulary="collective.resource.subject")
     
     resourceDublinCore_description = ListField(title=_(u'Description'),
         value_type=DictRow(title=_(u'Description'), schema=IDescription),
@@ -136,11 +146,14 @@ class IResource(form.Schema):
     )
     dexteritytextindexer.searchable('resourceDublinCore_date')
     
-    resourceDublinCore_resourceType = ListField(title=_(u'Resource Type'),
-        value_type=DictRow(title=_(u'Resource Type'), schema=IResourceType),
-        required=False)
-    form.widget(resourceDublinCore_resourceType=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('resourceDublinCore_resourceType')
+    resourceDublinCore_resourceType = schema.List(
+        title=_(u'Resource type'),
+        required=False,
+        value_type=schema.TextLine(),
+        missing_value=[],
+        default=[]
+    )
+    form.widget('resourceDublinCore_resourceType', AjaxSelectFieldWidget, vocabulary="collective.resource.resourceType")
 
     resourceDublinCore_format = ListField(title=_(u'Format'),
         value_type=DictRow(title=_(u'Format'), schema=IFormat),
@@ -167,12 +180,16 @@ class IResource(form.Schema):
     form.widget(resourceDublinCore_source=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('resourceDublinCore_source')
     
-    resourceDublinCore_language = ListField(title=_(u'Language'),
-        value_type=DictRow(title=_(u'Language'), schema=ILanguage),
-        required=False)
-    form.widget(resourceDublinCore_language=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('resourceDublinCore_language')
-    
+    resourceDublinCore_language = schema.List(
+        title=_(u'Language'),
+        required=False,
+        value_type=schema.TextLine(),
+        missing_value=[],
+        default=[]
+    )
+    form.widget('resourceDublinCore_language', AjaxSelectFieldWidget, vocabulary="collective.resource.language")
+
+
     resourceDublinCore_relation = ListField(title=_(u'Relation'),
         value_type=DictRow(title=_(u'Relation'), schema=IRelation),
         required=False)
@@ -247,16 +264,6 @@ class IResource(form.Schema):
         fields=['linkedObjects_linkedObjects']
     )
 
-    """linkedObjects_relatedItems = RelationList(
-        title=_(u'label_related_items', default=u'Related Items'),
-        default=[],
-        value_type=RelationChoice(
-            title=u"Related",
-            source=ObjPathSourceBinder()
-        ),
-        required=False
-    )"""
-
     linkedObjects_linkedObjects = ListField(title=_(u'Linked Objects'),
         value_type=DictRow(title=_(u'Linked Objects'), schema=ILinkedObjects),
         required=False)
@@ -305,7 +312,6 @@ class AddForm(add.DefaultAddForm):
         super(AddForm, self).update()
         for group in self.groups:
             for widget in group.widgets.values():
-                print widget
                 alsoProvides(widget, IFormWidget)        
 
 class AddView(add.DefaultAddView):
@@ -319,7 +325,7 @@ class EditForm(edit.DefaultEditForm):
         super(EditForm, self).update()
         for group in self.groups:
             for widget in group.widgets.values():
-                if widget.__name__ in ['']:
+                if IDataGridField.providedBy(widget):
                     widget.auto_append = False
                     widget.allow_reorder = True
                 alsoProvides(widget, IFormWidget)
