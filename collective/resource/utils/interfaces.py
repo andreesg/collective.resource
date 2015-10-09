@@ -307,8 +307,5 @@ class ICopyDetails(Interface):
         default=[]
     )
     form.widget('site', AjaxSingleSelectFieldWidget, vocabulary="collective.resource.site")
-
-    holding = schema.TextLine(title=_(u'Holding'), required=False)
-    missing = schema.TextLine(title=_(u'Missing'), required=False)
     locationNotes = schema.Text(title=_(u'Location notes'), required=False)
 
