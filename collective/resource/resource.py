@@ -19,6 +19,7 @@ from plone.app.textfield import RichText
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.supermodel import model
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from plone.app.content.interfaces import INameFromTitle
 
 #
 # z3c.forms dependencies
@@ -74,6 +75,21 @@ from collective.z3cform.datagridfield.interfaces import IDataGridField
 # # # # # # # # # # # # ###
 # # # # # # # # # # # # ###
 
+
+class INameFromPersonNames(INameFromTitle):
+    def title():
+        """Return a processed title"""
+
+class NameFromPersonNames(object):
+    implements(INameFromPersonNames)
+    
+    def __init__(self, context):
+        self.context = context
+
+    @property
+    def title(self):
+        return self.context.resourceDublinCore_title[0]['title']
+
 class IResource(form.Schema):
 
     priref = schema.TextLine(
@@ -103,7 +119,7 @@ class IResource(form.Schema):
 
     resourceDublinCore_title = ListField(title=_(u'Reproduction'),
         value_type=DictRow(title=_(u'Reproduction'), schema=ITitle),
-        required=False)
+        required=True)
     form.widget(resourceDublinCore_title=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('resourceDublinCore_title')
 
@@ -269,6 +285,7 @@ class IResource(form.Schema):
         required=False)
     form.widget(linkedObjects_linkedObjects=DataGridFieldFactory)
     dexteritytextindexer.searchable('linkedObjects_linkedObjects')
+
 
 
     # # # # # # # # # # # # # # # # # # # # #
