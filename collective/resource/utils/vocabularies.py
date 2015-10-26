@@ -14,6 +14,7 @@ def _createInsuranceTypeVocabulary():
     insurance_types = {
         "commercial": _(u"Commercial"),
         "indemnity": _(u"Indemnity"),
+        "No value":u" "
     }
 
     for key, name in insurance_types.items():
@@ -25,7 +26,8 @@ def _createPriorityVocabulary():
         "low": _(u"low"),
         "medium": _(u"medium"),
         "high": _(u"high"),
-        "urgent": _(u"urgent")
+        "urgent": _(u"urgent"),
+        "No value":u" "
     }
 
     for key, name in priorities.items():

@@ -31,7 +31,7 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 #from plone.formwidget.contenttree import ObjPathSourceBinder
 
-from .utils.source import ObjPathSourceBinder
+#from .utils.source import ObjPathSourceBinder
 
 #
 # plone.app.widgets dependencies
@@ -240,8 +240,6 @@ class IResource(form.Schema):
     dexteritytextindexer.searchable('reproductions_reproduction')
 
 
-
-
     # # # # # # # # # # # # # # # # # # # # #
     # Exhibitions, auctions, collections    #
     # # # # # # # # # # # # # # # # # # # # #
@@ -317,7 +315,23 @@ class IResource(form.Schema):
 
 class Resource(Container):
     grok.implements(IResource)
-    pass
+
+    def Title(self):
+        ''' Return a title from title author '''
+        return self.resourceDublinCore_title[0]['title']
+
+    @property
+    def title(self):
+        ''' return title '''
+        return self.resourceDublinCore_title[0]['title']
+
+    @title.setter
+    def title(self, value):
+        try:
+            self.resourceDublinCore_title[0]['title'] = value
+        except:
+            pass
+
 
 # # # # # # # # # # # # # #
 # Resource add/edit views # 

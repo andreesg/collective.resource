@@ -213,9 +213,6 @@ class ILinkedObjects(Interface):
         required=False
     )
     form.widget('objectNumber', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
-    #creator = schema.TextLine(title=_(u'Creator'), required=False)
-    #objectName = schema.TextLine(title=_(u'Object name'), required=False)
-    #title = schema.TextLine(title=_(u'Title'), required=False)
 
 
 # Exhibitions, auctions, collections
@@ -231,32 +228,15 @@ class IExhibition(Interface):
         required=False
     )
     form.widget('exhibitionName', SimpleRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
-    #date = schema.TextLine(title=_(u'Date'), required=False)
-    #to = schema.TextLine(title=_(u'to'), required=False)
-    #organiser = schema.TextLine(title=_(u'Organiser'), required=False)
-    #venue = schema.TextLine(title=_(u'Venue'), required=False)
-    #place = schema.TextLine(title=_(u'Place'), required=False)
     notes = schema.Text(title=_(u'Notes'), required=False)
 
 
 class IAuction(Interface):
     auctionName = schema.TextLine(title=_(u'Auction name'), required=False)
-    #auctioneer = schema.TextLine(title=_(u'Auctioneer'), required=False)
-    #date = schema.TextLine(title=_(u'Date'), required=False)
-    #to = schema.TextLine(title=_(u'to'), required=False)
-    #place = schema.TextLine(title=_(u'Place'), required=False)
-    #location = schema.TextLine(title=_(u'Location'), required=False)
-    #collector = schema.TextLine(title=_(u'Collector'), required=False)
-    #commissairPriseur = schema.TextLine(title=_(u'Commissair-priseur'), required=False)
-    #auctionNumber = schema.TextLine(title=_(u'Auction number'), required=False)
     notes = schema.Text(title=_(u'Notes'), required=False)
 
 class ICollection(Interface):
     collectionName = schema.TextLine(title=_(u'Collection name'), required=False)
-    #collector = schema.TextLine(title=_(u'Collector'), required=False)
-    #organisation = schema.TextLine(title=_(u'Organisation'), required=False)
-    #date = schema.TextLine(title=_(u'Date'), required=False)
-    #place = schema.TextLine(title=_(u'Place'), required=False)
     notes = schema.Text(title=_(u'Notes'), required=False)
 
 
