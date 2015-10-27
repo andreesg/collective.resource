@@ -342,7 +342,10 @@ class Resource(Container):
 
     def Title(self):
         ''' Return a title from title author '''
-        return self.resourceDublinCore_title[0]['title']
+        try:
+            return self.resourceDublinCore_title[0]['title']
+        except:
+            return ""
 
     @property
     def title(self):
