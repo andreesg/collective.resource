@@ -64,7 +64,7 @@ from .utils.views import *
 
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
-from collective.object.utils.widgets import SimpleRelatedItemsFieldWidget, AjaxSingleSelectFieldWidget
+from collective.object.utils.widgets import SimpleRelatedItemsFieldWidget, AjaxSingleSelectFieldWidget, ExtendedRelatedItemsFieldWidget
 from collective.object.utils.source import ObjPathSourceBinder
 from plone.directives import dexterity, form
 from collective.z3cform.datagridfield.interfaces import IDataGridField
@@ -107,9 +107,9 @@ class IResource(form.Schema):
     # Resource (Dublin Core)                      #
     # # # # # # # # # # # # # # # # # # # # # # # #
     model.fieldset('resource_dublin_core', label=_(u'Resource (Dublin Core)'), 
-        fields=['resourceDublinCore_title', 'resourceDublinCore_creator',
+        fields=['resourceDublinCore_title', 'resourceDublinCore_creators',
         'resourceDublinCore_subject', 'resourceDublinCore_description',
-        'resourceDublinCore_publisher', 'resourceDublinCore_contributor',
+        'resourceDublinCore_publishers', 'resourceDublinCore_contributors',
         'resourceDublinCore_date', 'resourceDublinCore_resourceType',
         'resourceDublinCore_format', 'resourceDublinCore_identifier',
         'resourceDublinCore_sortYear_sortYear', 'resourceDublinCore_source',
@@ -123,11 +123,17 @@ class IResource(form.Schema):
     form.widget(resourceDublinCore_title=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('resourceDublinCore_title')
 
-    resourceDublinCore_creator = ListField(title=_(u'Creator'),
-        value_type=DictRow(title=_(u'Creator'), schema=ICreator),
-        required=False)
-    form.widget(resourceDublinCore_creator=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('resourceDublinCore_creator')
+    resourceDublinCore_creators = RelationList(
+        title=_(u'Creator'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('resourceDublinCore_creators', ExtendedRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
     
     resourceDublinCore_subject = schema.List(
         title=_(u'Subject'),
@@ -144,17 +150,29 @@ class IResource(form.Schema):
     form.widget(resourceDublinCore_description=BlockDataGridFieldFactory)
     dexteritytextindexer.searchable('resourceDublinCore_description')
     
-    resourceDublinCore_publisher = ListField(title=_(u'Publisher'),
-        value_type=DictRow(title=_(u'Publisher'), schema=IPublisher),
-        required=False)
-    form.widget(resourceDublinCore_publisher=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('resourceDublinCore_publisher')
+    resourceDublinCore_publishers = RelationList(
+        title=_(u'Publisher'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('resourceDublinCore_publishers', ExtendedRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
     
-    resourceDublinCore_contributor = ListField(title=_(u'Contributor'),
-        value_type=DictRow(title=_(u'Contributor'), schema=IContributor),
-        required=False)
-    form.widget(resourceDublinCore_contributor=BlockDataGridFieldFactory)
-    dexteritytextindexer.searchable('resourceDublinCore_contributor')
+    resourceDublinCore_contributors = RelationList(
+        title=_(u'Contributor'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+        ),
+        required=False
+    )
+    form.widget('resourceDublinCore_contributors', ExtendedRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
     
     resourceDublinCore_date = schema.TextLine(
         title=_(u'Date'),
@@ -275,14 +293,20 @@ class IResource(form.Schema):
     # # # # # # # # # # #
 
     model.fieldset('linked_objects', label=_(u'Linked Objects'), 
-        fields=['linkedObjects_linkedObjects']
+        fields=['linkedObjects_linkedobjects']
     )
 
-    linkedObjects_linkedObjects = ListField(title=_(u'Linked Objects'),
-        value_type=DictRow(title=_(u'Linked Objects'), schema=ILinkedObjects),
-        required=False)
-    form.widget(linkedObjects_linkedObjects=DataGridFieldFactory)
-    dexteritytextindexer.searchable('linkedObjects_linkedObjects')
+    linkedObjects_linkedobjects = RelationList(
+        title=_(u'Contributor'),
+        default=[],
+        missing_value=[],
+        value_type=RelationChoice(
+            title=u"Related",
+            source=ObjPathSourceBinder(portal_type='Object')
+        ),
+        required=False
+    )
+    form.widget('linkedObjects_linkedobjects', ExtendedRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
 
 
 
