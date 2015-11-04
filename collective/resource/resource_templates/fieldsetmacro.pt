@@ -83,7 +83,7 @@
   </tal:resource_dublin_core>
 </div>
 
-<div metal:define-macro="test">
+<div metal:define-macro="test" i18n:domain="collective.resource">
 
   <tal:resource_dublin_core tal:condition='python: fieldset_text == "resource_dublin_core"'
     tal:define='widgets group/widgets'>
