@@ -4,6 +4,32 @@
 from plone.indexer.decorator import indexer
 from ..resource import IResource
 
+from z3c.relationfield.interfaces import IRelationValue
+
+@indexer(IResource)
+def library_author(object, **kw):
+    try:
+        if hasattr(object, 'resourceDublinCore_creators'):
+            list_authors = []
+            items = object.resourceDublinCore_creators
+            if items:
+                for item in items:
+                    author = item
+                    if IRelationValue.providedBy(author):
+                        author_obj = author.to_object
+                        title = getattr(author_obj, 'title', None)
+                        if title:
+                            list_authors.append(title)
+                    else:
+                        title = getattr(author, 'title', None)
+                        if title:
+                            list_authors.append(title)
+
+            return "_".join(list_authors)
+        else:
+            return ""
+    except:
+        return ""
 
 @indexer(IResource)
 def copiesAndShelfMarks_copyDetails_loanCategory(object, **kw):

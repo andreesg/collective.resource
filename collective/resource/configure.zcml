@@ -100,6 +100,9 @@
   <adapter name="copiesAndShelfMarks_copyDetails_loan" factory=".utils.indexers.copiesAndShelfMarks_copyDetails_loan" />
   <adapter name="copiesAndShelfMarks_copyDetails_site" factory=".utils.indexers.copiesAndShelfMarks_copyDetails_site" />
   
+  <adapter name="library_author" factory=".utils.indexers.library_author" />
+  
+  
   <adapter for=".resource.IResource"
     provides=".resource.INameFromPersonNames"
     factory=".resource.NameFromPersonNames"
