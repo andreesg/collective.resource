@@ -207,12 +207,12 @@
   <tal:linked_objects tal:condition='python: fieldset_text == "linked_objects"'
     tal:define='widgets group/widgets'>
     <div class="row no-padding">
+        <div class="object-listing">
         <h2 class="page-header" i18n:translate="">Linked Objects</h2>
-
         <div class="form-horizontal">
           <tal:widget tal:content="structure view/getRelatedObjects"/>
         </div>
-        
+        </div>
     </div>
   </tal:linked_objects>
 

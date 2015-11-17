@@ -298,9 +298,9 @@ class IResource(form.Schema):
     # # # # # # # # # # #
 
     model.fieldset('linked_objects', label=_(u'Linked Objects'), 
-        fields=['linkedObjects_linkedobjects']
+        fields=[]
     )
-
+    """
     linkedObjects_linkedobjects = RelationList(
         title=_(u'Contributor'),
         default=[],
@@ -311,7 +311,7 @@ class IResource(form.Schema):
         ),
         required=False
     )
-    form.widget('linkedObjects_linkedobjects', ExtendedRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')
+    form.widget('linkedObjects_linkedobjects', ExtendedRelatedItemsFieldWidget, vocabulary='collective.object.relateditems')"""
 
 
 
