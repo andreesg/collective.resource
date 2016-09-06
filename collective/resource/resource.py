@@ -36,7 +36,7 @@ from z3c.relationfield.schema import RelationList
 #
 # plone.app.widgets dependencies
 #
-from plone.app.widgets.dx import DatetimeFieldWidget, RelatedItemsFieldWidget
+from plone.app.z3cform.widget import DatetimeFieldWidget, RelatedItemsFieldWidget
 
 #
 # DataGridFields dependencies
@@ -52,7 +52,7 @@ from collective import dexteritytextindexer
 from plone.dexterity.browser.view import DefaultView
 from plone.dexterity.content import Container
 from plone.dexterity.browser import add, edit
-from plone.app.widgets.dx import AjaxSelectFieldWidget
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
 
 # # # # # # # # # # # # # # # # # #
 # !Resource specific imports!     #
@@ -134,7 +134,7 @@ class IResource(form.Schema):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -161,7 +161,7 @@ class IResource(form.Schema):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -173,7 +173,7 @@ class IResource(form.Schema):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -355,8 +355,11 @@ class Resource(Container):
     @property
     def title(self):
         ''' return title '''
-        return self.resourceDublinCore_title[0]['title']
-
+        try:
+            return self.resourceDublinCore_title[0]['title']
+        except:
+            return ""
+            
     @title.setter
     def title(self, value):
         try:

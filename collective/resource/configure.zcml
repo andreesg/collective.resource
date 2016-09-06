@@ -70,13 +70,13 @@
   </class>
 
   <!-- Custom plone form widget -->
-  <browser:page
+  <!--<browser:page
     name="ploneform-render-widget"
     for=".resource.IFormWidget"
     class="plone.app.z3cform.templates.RenderWidget"
     permission="zope.Public"
     template="resource_templates/widget.pt"
-  />
+  />-->
 
   <!-- Custom Add and Edit form macro -->
   <browser:page
@@ -101,6 +101,7 @@
   <adapter name="copiesAndShelfMarks_copyDetails_site" factory=".utils.indexers.copiesAndShelfMarks_copyDetails_site" />
   
   <adapter name="library_author" factory=".utils.indexers.library_author" />
+  <adapter name="resource_priref" factory=".utils.indexers.resource_priref" />
   
   
   <adapter for=".resource.IResource"

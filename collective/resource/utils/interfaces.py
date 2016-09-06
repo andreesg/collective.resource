@@ -44,7 +44,7 @@ class ICreator(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -63,7 +63,7 @@ class IContributor(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -111,7 +111,7 @@ class IPublisher(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='PersonOrInstitution')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -195,9 +195,9 @@ class IAbstract(Interface):
 # Reproductions
 class IReproduction(Interface):
     reference = schema.TextLine(title=_(u'Reference'), required=False)
-    type = schema.TextLine(title=_(u'Type'), required=False)
-    format = schema.TextLine(title=_(u'Format'), required=False)
-    date = schema.TextLine(title=_(u'Date'), required=False)
+    #type = schema.TextLine(title=_(u'Type'), required=False)
+    #format = schema.TextLine(title=_(u'Format'), required=False)
+    #date = schema.TextLine(title=_(u'Date'), required=False)
     identifierURL = schema.TextLine(title=_(u'Identifier (URL)'), required=False)
     notes = schema.TextLine(title=_(u'Notes'), required=False)
 
@@ -208,7 +208,7 @@ class ILinkedObjects(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='Object')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )
@@ -223,7 +223,7 @@ class IExhibition(Interface):
         missing_value=[],
         value_type=RelationChoice(
             title=u"Related",
-            source=ObjPathSourceBinder(portal_type='Exhibition')
+            vocabulary='collective.object.relateditems'
         ),
         required=False
     )

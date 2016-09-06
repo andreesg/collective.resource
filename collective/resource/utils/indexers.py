@@ -31,6 +31,18 @@ def library_author(object, **kw):
     except:
         return ""
 
+
+@indexer(IResource)
+def resource_priref(object, **kw):
+    try:
+        if hasattr(object, 'priref'):
+            return object.priref
+        else:
+            return ""
+    except:
+        return ""
+
+
 @indexer(IResource)
 def copiesAndShelfMarks_copyDetails_loanCategory(object, **kw):
     try:
